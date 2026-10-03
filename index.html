@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedro Lucas | Full Stack Developer & Engenheiro de Software</title>
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ==========================================================================
+       1. VARIÁVEIS E ESTILOS BASE (TEMA AZULADO)
+       ========================================================================== */
+    :root {
+      --bg-main: #0b132b;          /* Azul Noite Profundo */
+      --bg-card: #1c2541;          /* Azul Secundário */
+      --bg-card-hover: #233157;    /* Azul Interativo */
+      --border-color: #2a3a68;     /* Linhas e Divisórias */
+      
+      --text-primary: #f1f5f9;     /* Branco Suave */
+      --text-secondary: #94a3b8;   /* Cinza Azulado */
+      --text-muted: #64748b;       /* Legendas */
+      
+      --accent-blue: #3a86ff;      /* Destaque Azul Elétrico */
+      --accent-cyan: #00f5d4;      /* Destaque Ciano Néon */
+      --accent-gradient: linear-gradient(135deg, #3a86ff, #00f5d4);
+      
+      --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+      --font-code: 'Fira Code', monospace;
+      --max-width: 900px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-primary);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      padding: 0 20px;
+      overflow-x: hidden;
+    }
+
+    /* Fundo com efeito de luz sutil */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(58, 134, 255, 0.12) 0%, rgba(11, 19, 43, 0) 70%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--accent-blue);
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 40px 0 80px 0;
+    }
+
+    /* ==========================================================================
+       2. CABEÇALHO / HERO (ESTILO JOÃO MADEIRA COM ESFERA LIMPA)
+       ========================================================================== */
+    .hero-section {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 60px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    @media (min-width: 680px) {
+      .hero-section {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+      }
+    }
+
+    .hero-text {
+      flex: 1;
+      text-align: center;
+    }
+
+    @media (min-width: 680px) {
+      .hero-text {
+        text-align: left;
+      }
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+      background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--accent-cyan);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    @media (min-width: 680px) {
+      .hero-meta {
+        justify-content: flex-start;
+      }
+    }
+
+    .hero-meta item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 15px;
+    }
+
+    @media (min-width: 680px) {
+      .social-links {
+        justify-content: flex-start;
+      }
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .social-btn:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--accent-blue);
+      transform: translateY(-2px);
+    }
+
+    /* ESFERA DA FOTO LIMPA (SEM MOLDURA VERMELHA/GRADIENTE E SEM SELO) */
+    .avatar-wrapper {
+      position: relative;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      /* Borda sutil e elegante que combina com o tema */
+      border: 3px solid var(--border-color);
+      box-shadow: 0 0 20px rgba(58, 134, 255, 0.1);
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden; /* Garante que a imagem fique contida na esfera */
+    }
+
+    .avatar-wrapper:hover {
+      transform: scale(1.03);
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 30px rgba(58, 134, 255, 0.2);
+    }
+
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* O selo .insta-badge foi removido do CSS e do HTML */
+
+    /* ==========================================================================
+       3. BIO / SOBRE MIM
+       ========================================================================== */
+    .section-title {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-cyan);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-color);
+    }
+
+    .bio-text {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      margin-bottom: 50px;
+    }
+
+    /* ==========================================================================
+       4. EXPERIÊNCIA PROFISSIONAL (TIMELINE LIMPA)
+       ========================================================================== */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .timeline-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .timeline-item:hover {
+      border-color: var(--accent-blue);
+      transform: translateY(-2px);
+    }
+
+    .job-header {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 12px;
+    }
+
+    @media (min-width: 500px) {
+      .job-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+    }
+
+    .job-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .job-company {
+      color: var(--accent-blue);
+      font-weight: 600;
+    }
+
+    .job-period {
+      font-size: 0.85rem;
+      font-family: var(--font-code);
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 3px 8px;
+      border-radius: 4px;
+      width: fit-content;
+    }
+
+    .job-desc {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tech-tag {
+      font-size: 0.8rem;
+      font-family: var(--font-code);
+      background: rgba(58, 134, 255, 0.1);
+      color: var(--accent-cyan);
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(0, 245, 212, 0.2);
+    }
+
+    /* ==========================================================================
+       5. COMPETÊNCIAS / TECNOLOGIAS
+       ========================================================================== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 60px;
+    }
+
+    .skill-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 16px;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .skill-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--accent-cyan);
+    }
+
+    .skill-icon {
+      font-size: 1.8rem;
+      color: var(--accent-blue);
+      margin-bottom: 8px;
+    }
+
+    .skill-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    /* ==========================================================================
+       6. RODAPÉ
+       ========================================================================== */
+    footer {
+      text-align: center;
+      padding-top: 40px;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- ================= HERO / PERFIL ================= -->
+    <header class="hero-section">
+      <div class="hero-text">
+        <h1 class="hero-title">Pedro Lucas</h1>
+        <div class="hero-subtitle">Network Engineer</div>
+        
+        <div class="hero-meta">
+          <span class="item"><i class="fa-solid fa-location-dot"></i> Portugal</span>
+          <span class="item"><i class="fa-solid fa-briefcase"></i> Based in Lisbon</span>
+        </div>
+
+        <div class="social-links">
+          <a href="mailto:contact@pedrolucas.net" class="social-btn"><i class="fa-solid fa-envelope"></i> Email</a>
+          <a href="https://linkedin.com" target="_blank" class="social-btn"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a href="https://github.com" target="_blank" class="social-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+          <a href="#" class="social-btn"><i class="fa-solid fa-file-pdf"></i> CV</a>
+        </div>
+      </div>
+
+      <!-- FOTO EM ESFERA PERFEITA LIMPDA -->
+      <div class="avatar-wrapper">
+        <img src="pedrolucas.jpeg" alt="Foto de Pedro Lucas" class="avatar-img">
+        <!-- O selo "PRO" foi removido daqui -->
+      </div>
+    </header>
+
+    <!-- ================= BIO ================= -->
+    <section>
+      <h2 class="section-title">Sobre Mim</h2>
+      <p class="bio-text">
+        Helloooo :) Im a Netwrok Engineer in love with is job and with the idea of keep learning and improving.
+        Outside of my job i like books, music, books and all kinds of art.
+        I also like to go to the gym, when i have the time.
+      </p>
+    </section>
+
+    <!-- ================= EXPERIÊNCIA PROFISSIONAL ================= -->
+    <section>
+      <h2 class="section-title">Experiência Profissional</h2>
+      
+      <div class="timeline">
+
+        <!-- Emprego 1 -->
+        <article class="timeline-item">
+          <div class="job-header">
+            <div>
+              <div class="job-title">Network Engineer</div>
+              <div class="job-company">Claranet Portugal</div>
+            </div>
+            <span class="job-period">2019 – Presente</span>
+          </div>
+          <p class="job-desc">
+            Senior Network Delivery Enginner
+            Design, setup and implementaion of network and security solutions from SD-WAN to Wifi, load balancing, automation and 
+          </p>
+          <div class="tech-tags">
+            <span class="tech-tag">Cisco</span>
+            <span class="tech-tag">Fortinet</span>
+            <span class="tech-tag">Palo Alto</span>
+            <span class="tech-tag">Checkpoint</span>
+            <span class="tech-tag">Aruba</span>
+          </div>
+        </article>
+
+        <!-- Emprego 2 -->
+        <article class="timeline-item">
+          <div class="job-header">
+            <div>
+              <div class="job-title">Frontend Developer</div>
+              <div class="job-company">Digital Agency</div>
+            </div>
+            <span class="job-period">2021 – 2023</span>
+          </div>
+          <p class="job-desc">
+            Desenvolvimento de plataformas interativas e portfólios para clientes internacionais, garantindo responsividade, acessibilidade e SEO avançado.
+          </p>
+          <div class="tech-tags">
+            <span class="tech-tag">Vue.js</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Sass</span>
+            <span class="tech-tag">Tailwind</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ================= TECNOLOGIAS ================= -->
+    <section>
+      <h2 class="section-title">Tecnologias & Ferramentas</h2>
+      
+      <div class="skills-grid">
+        <div class="skill-card">
+          <i class="fa-brands fa-js skill-icon"></i>
+          <div class="skill-name">JavaScript / TypeScript</div>
+        </div>
+        <div class="skill-card">
+          <i class="fa-brands fa-react skill-icon"></i>
+          <div class="skill-name">React / Next.js</div>
+        </div>
+        <div class="skill-card">
+          <i class="fa-brands fa-node-js skill-icon"></i>
+          <div class="skill-name">Node.js & Express</div>
+        </div>
+        <div class="skill-card">
+          <i class="fa-solid fa-database skill-icon"></i>
+          <div class="skill-name">PostgreSQL / MongoDB</div>
+        </div>
+        <div class="skill-card">
+          <i class="fa-brands fa-docker skill-icon"></i>
+          <div class="skill-name">Docker & DevOps</div>
+        </div>
+        <div class="skill-card">
+          <i class="fa-brands fa-git-alt skill-icon"></i>
+          <div class="skill-name">Git & GitHub</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= RODAPÉ ================= -->
+    <footer>
+      <p>© 2026 Pedro Lucas. Todos os direitos reservados.</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
