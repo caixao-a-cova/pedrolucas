@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pedro Lucas | Full Stack Developer & Engenheiro de Software</title>
+  <title>Pedro Lucas | Senior Network Engineer</title>
   <!-- Google Fonts & FontAwesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,24 +14,21 @@
     /* ==========================================================================
        1. VARIÁVEIS E ESTILOS BASE (TEMA AZULADO)
        ========================================================================== */
-    :root {
-      --bg-main: #0b132b;          /* Azul Noite Profundo */
-      --bg-card: #1c2541;          /* Azul Secundário */
-      --bg-card-hover: #233157;    /* Azul Interativo */
-      --border-color: #2a3a68;     /* Linhas e Divisórias */
-      
-      --text-primary: #f1f5f9;     /* Branco Suave */
-      --text-secondary: #94a3b8;   /* Cinza Azulado */
-      --text-muted: #64748b;       /* Legendas */
-      
-      --accent-blue: #3a86ff;      /* Destaque Azul Elétrico */
-      --accent-cyan: #00f5d4;      /* Destaque Ciano Néon */
-      --accent-gradient: linear-gradient(135deg, #3a86ff, #00f5d4);
-      
-      --font-main: 'Inter', system-ui, -apple-system, sans-serif;
-      --font-code: 'Fira Code', monospace;
-      --max-width: 900px;
-    }
+:root {
+  --bg-main: #f8fafc;          /* Off-White Background */
+  --bg-card: #ffffff;          /* Pure White Cards */
+  --bg-card-hover: #f1f5f9;    /* Light Slate Gray Hover */
+  --border-color: #e2e8f0;     /* Crisp Light Gray Border */
+  --text-primary: #0f172a;     /* Deep Dark Slate Text */
+  --text-secondary: #475569;   /* Muted Slate Text */
+  --text-muted: #94a3b8;       /* Light Muted Gray */
+  --accent-blue: #2563eb;      /* Royal Blue Accent */
+  --accent-cyan: #0284c7;      /* Ocean Blue */
+  --accent-gradient: linear-gradient(135deg, #2563eb, #0284c7);
+  --font-main: 'Inter', system-ui, sans-serif;
+  --font-code: 'Fira Code', monospace;
+  --max-width: 900px;
+}
 
     * {
       box-sizing: border-box;
@@ -114,15 +111,16 @@
       }
     }
 
-    .hero-title {
-      font-size: 2.5rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 8px;
-      background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  /* Dark slate text color for maximum legibility on light background */
+  color: #0f172a;
+  background: none;
+  -webkit-text-fill-color: initial;
+}
 
     .hero-subtitle {
       font-size: 1.25rem;
@@ -189,8 +187,8 @@
     /* ESFERA DA FOTO LIMPA (SEM MOLDURA VERMELHA/GRADIENTE E SEM SELO) */
     .avatar-wrapper {
       position: relative;
-      width: 170px;
-      height: 170px;
+      width: 220px;
+      height: 220px;
       border-radius: 50%;
       /* Borda sutil e elegante que combina com o tema */
       border: 3px solid var(--border-color);
@@ -367,6 +365,17 @@
       color: var(--text-muted);
       font-size: 0.85rem;
     }
+
+    /* ... all your previous CSS rules are here ... */
+
+    /* ADD THE NEW CSS HERE (at the bottom of the style section) */
+    .cert-logo {
+      width: 32px;
+      height: 32px;
+      margin-bottom: 8px;
+      filter: invert(48%) sepia(85%) saturate(2476%) hue-rotate(202deg) brightness(102%) contrast(101%);
+    }
+
   </style>
 </head>
 <body>
@@ -380,14 +389,13 @@
         <div class="hero-subtitle">Network Engineer</div>
         
         <div class="hero-meta">
-          <span class="item"><i class="fa-solid fa-location-dot"></i> Portugal</span>
-          <span class="item"><i class="fa-solid fa-briefcase"></i> Based in Lisbon</span>
+          <span class="item"><i class="fa-solid fa-location-dot"></i> Lisbon, Portugal</span>
+          <span class="item"><i class="fa-solid fa-briefcase"></i> Claranet Portugal</span>
         </div>
 
         <div class="social-links">
-          <a href="mailto:contact@pedrolucas.net" class="social-btn"><i class="fa-solid fa-envelope"></i> Email</a>
-          <a href="https://linkedin.com" target="_blank" class="social-btn"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-          <a href="https://github.com" target="_blank" class="social-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+          <a href="mailto:pedro.fr.lucas@gmail.com" class="social-btn"><i class="fa-solid fa-envelope"></i> Email</a>
+          <a href="https://www.linkedin.com/in/pedro-lucas-452303178/" target="_blank" class="social-btn"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
           <a href="#" class="social-btn"><i class="fa-solid fa-file-pdf"></i> CV</a>
         </div>
       </div>
@@ -401,17 +409,17 @@
 
     <!-- ================= BIO ================= -->
     <section>
-      <h2 class="section-title">Sobre Mim</h2>
+      <h2 class="section-title">About Me</h2>
       <p class="bio-text">
-        Helloooo :) Im a Netwrok Engineer in love with is job and with the idea of keep learning and improving.
-        Outside of my job i like books, music, books and all kinds of art.
+        Helloooo :) Im a Network Engineer in love with his job and with the idea of keep learning and improving.
+        Outside of my job i like books, music, movies and all types of art.
         I also like to go to the gym, when i have the time.
       </p>
     </section>
 
     <!-- ================= EXPERIÊNCIA PROFISSIONAL ================= -->
     <section>
-      <h2 class="section-title">Experiência Profissional</h2>
+      <h2 class="section-title">Job Experience</h2>
       
       <div class="timeline">
 
@@ -419,14 +427,34 @@
         <article class="timeline-item">
           <div class="job-header">
             <div>
-              <div class="job-title">Network Engineer</div>
+              <div class="job-title">Senior Network Delivery Enginner</div>
               <div class="job-company">Claranet Portugal</div>
             </div>
-            <span class="job-period">2019 – Presente</span>
+            <span class="job-period">2021 – Present</span>
           </div>
           <p class="job-desc">
-            Senior Network Delivery Enginner
-            Design, setup and implementaion of network and security solutions from SD-WAN to Wifi, load balancing, automation and 
+            Design, setup and implementaion of network and security solutions from SD-WAN to Wifi, load balancing, automation, high availability, geo-redundancy and so on.
+          </p>
+          <div class="tech-tags">
+            <span class="tech-tag">Cisco</span>
+            <span class="tech-tag">Fortinet</span>
+            <span class="tech-tag">Palo Alto</span>
+            <span class="tech-tag">Checkpoint</span>
+            <span class="tech-tag">Aruba</span>
+          </div>
+        </article>
+
+        <!-- Emprego 1 -->
+        <article class="timeline-item">
+          <div class="job-header">
+            <div>
+              <div class="job-title">Network Administrator</div>
+              <div class="job-company">Claranet Portugal</div>
+            </div>
+            <span class="job-period">2019 – 2021</span>
+          </div>
+          <p class="job-desc">
+            Maintain, support and troubleshoot third party network infrastructures. 
           </p>
           <div class="tech-tags">
             <span class="tech-tag">Cisco</span>
@@ -441,53 +469,86 @@
         <article class="timeline-item">
           <div class="job-header">
             <div>
-              <div class="job-title">Frontend Developer</div>
-              <div class="job-company">Digital Agency</div>
+              <div class="job-title">Network and System Administrator</div>
+              <div class="job-company">SFGR</div>
             </div>
-            <span class="job-period">2021 – 2023</span>
+            <span class="job-period">2016 – 2019</span>
           </div>
           <p class="job-desc">
-            Desenvolvimento de plataformas interativas e portfólios para clientes internacionais, garantindo responsividade, acessibilidade e SEO avançado.
+            Mantain and troubleshoot network infrastructure.
+            Implementation of sharing and auto-reporting mechanisms with custom scripts.
           </p>
           <div class="tech-tags">
-            <span class="tech-tag">Vue.js</span>
-            <span class="tech-tag">JavaScript</span>
-            <span class="tech-tag">Sass</span>
-            <span class="tech-tag">Tailwind</span>
+            <span class="tech-tag">Linux</span>
+            <span class="tech-tag">Windows Server</span>
+            <span class="tech-tag">Cisco Call Manager</span>
+            <span class="tech-tag">Watchguard</span>
+            <span class="tech-tag">Python</span>
+          </div>
+        </article>
+
+                <!-- Emprego 2 -->
+        <article class="timeline-item">
+          <div class="job-header">
+            <div>
+              <div class="job-title">IT Helpdesk Support</div>
+              <div class="job-company">PCMedic</div>
+            </div>
+            <span class="job-period">2011 – 2015</span>
+          </div>
+          <p class="job-desc">
+            IT Heldesk support to private and enterprise customers of Portuguese ISP.
+          </p>
+          <div class="tech-tags">
+            <span class="tech-tag">VOIP</span>
+            <span class="tech-tag">Thin client</span>
+            <span class="tech-tag">Printers</span>
+            <span class="tech-tag">CCTV</span>
           </div>
         </article>
 
       </div>
     </section>
 
-    <!-- ================= TECNOLOGIAS ================= -->
+<!-- ================= CERTIFICATIONS ================= -->
     <section>
-      <h2 class="section-title">Tecnologias & Ferramentas</h2>
+      <h2 class="section-title">Main Certifications</h2>
       
       <div class="skills-grid">
+        <!-- Cisco -->
         <div class="skill-card">
-          <i class="fa-brands fa-js skill-icon"></i>
-          <div class="skill-name">JavaScript / TypeScript</div>
+          <img src="https://cdn.simpleicons.org/cisco" alt="Cisco Logo" class="cert-logo">
+          <div class="skill-name">Cisco CCNP Enterprise</div>
         </div>
+
+        <!-- Fortinet -->
         <div class="skill-card">
-          <i class="fa-brands fa-react skill-icon"></i>
-          <div class="skill-name">React / Next.js</div>
+          <img src="https://cdn.simpleicons.org/fortinet" alt="Fortinet Logo" class="cert-logo">
+          <div class="skill-name">Fortinet NSE7 Network Architect</div>
         </div>
+
+        <!-- Palo Alto Networks -->
         <div class="skill-card">
-          <i class="fa-brands fa-node-js skill-icon"></i>
-          <div class="skill-name">Node.js & Express</div>
+          <img src="https://cdn.simpleicons.org/paloaltonetworks" alt="Palo Alto Networks Logo" class="cert-logo">
+          <div class="skill-name">Palo Alto PCNSE Engineer</div>
         </div>
+
+        <!-- Check Point -->
         <div class="skill-card">
-          <i class="fa-solid fa-database skill-icon"></i>
-          <div class="skill-name">PostgreSQL / MongoDB</div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/Check_Point_logo_2022.svg" alt="Check Point Logo" class="cert-logo">
+          <div class="skill-name">Checkpoint CCSE Expert</div>
         </div>
+
+        <!-- HPE Aruba -->
         <div class="skill-card">
-          <i class="fa-brands fa-docker skill-icon"></i>
-          <div class="skill-name">Docker & DevOps</div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Aruba_Networks_logo.svg" alt="Aruba Logo" class="cert-logo">
+          <div class="skill-name">HPE Aruba ACSA</div>
         </div>
+
+        <!-- Microsoft Azure -->
         <div class="skill-card">
-          <i class="fa-brands fa-git-alt skill-icon"></i>
-          <div class="skill-name">Git & GitHub</div>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Microsoft Azure Logo" class="cert-logo">
+          <div class="skill-name">Microsoft Azure Fundamentals</div>
         </div>
       </div>
     </section>
