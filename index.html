@@ -334,6 +334,53 @@
       border: 1px solid rgba(0, 245, 212, 0.2);
     }
 
+/* ==========================================================================
+       5. PROJETOS RELEVANTES (ESTILOS ADICIONADOS)
+       ========================================================================== */
+    .projects-section {
+      margin-bottom: 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .project-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px 24px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .project-item:hover {
+      border-color: var(--accent-blue);
+      transform: translateY(-2px);
+    }
+
+    .project-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .project-description {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .project-tech {
+      font-size: 0.85rem;
+      font-family: var(--font-code);
+      color: var(--text-secondary);
+    }
+
+    .project-tech strong {
+      color: var(--accent-cyan);
+    }
+    
     /* ==========================================================================
        5. COMPETÊNCIAS / TECNOLOGIAS
        ========================================================================== */
